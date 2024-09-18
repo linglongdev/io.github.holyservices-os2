@@ -1,0 +1,29 @@
+version: "1"
+
+package:
+  id: io.github.holyservices-os2
+  name: holyservices-os2
+  version: 1.0.0.38
+  kind: app
+  description: |
+    A planning calendar for scheduling holy services at small parishes
+
+command:
+  - /opt/apps/io.github.holyservices-os2/files/bin/HolyServices
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/TeLLie/holyservices-os2.git
+    version: master
+    commit: dbffb35f698ce65a2ad9ae9ad57c0a2992642352
+
+
+build: |
+  cd /project/linglong/sources/holyservices-os2.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install

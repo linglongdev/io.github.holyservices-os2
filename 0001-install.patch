@@ -1,0 +1,50 @@
+From f7bd4f176dc448e9d45dcbe88f1f303f388b9d11 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 14 Sep 2024 16:41:04 +0800
+Subject: [PATCH] install
+
+---
+ HolyServices.desktop | 11 +++++++++++
+ HolyServices.pro     |  6 ++++++
+ 2 files changed, 17 insertions(+)
+ create mode 100644 HolyServices.desktop
+
+diff --git a/HolyServices.desktop b/HolyServices.desktop
+new file mode 100644
+index 0000000..121e578
+--- /dev/null
++++ b/HolyServices.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=HolyServices
++Name=HolyServices
++Name[zh_CN]=HolyServices
++Icon=holy_services16
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=HolyServices
++Version=2.0
+\ No newline at end of file
+diff --git a/HolyServices.pro b/HolyServices.pro
+index 5115fc8..ec085d4 100644
+--- a/HolyServices.pro
++++ b/HolyServices.pro
+@@ -279,7 +279,13 @@ RESOURCES += gui/HolyServices.qrc
+ 
+ 
+ 
++target.path = $$PREFIX/bin
++desktop.files = HolyServices.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = gui/images/holy_services16.png
+ 
++INSTALLS += target desktop icons
+ 
+ 
+ 
+-- 
+2.43.4
+
